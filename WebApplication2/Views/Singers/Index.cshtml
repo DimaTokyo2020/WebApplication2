@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MoodTubeOriginal.Models.Singer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by:
+        </p>
+        <p>
+            Singer Name:
+            <input type="text" name="SearchSingerString" value="@ViewData["SingerNameFilter"]" />
+        </p>
+        <p>
+            <input type="submit" value="Search" class="btn btn-default" />
+        </p>
+        <p>
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["SingerSortParm"]">@Html.DisplayNameFor(model => model.SingerName)</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SingerName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SingerID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SingerID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SingerID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

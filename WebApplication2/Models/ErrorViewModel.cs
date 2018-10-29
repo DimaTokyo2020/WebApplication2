@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApplication2.Models
+namespace MoodTubeOriginal.Models
 {
     public class ErrorViewModel
     {

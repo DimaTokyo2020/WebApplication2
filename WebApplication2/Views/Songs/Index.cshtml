@@ -1,0 +1,104 @@
+﻿@model IEnumerable<MoodTubeOriginal.Models.Song>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <!--
+    <select name="carlist" form="carform">
+        <option value="volvo">Song</option>
+        <option value="saab">Singer</option>
+    </select>
+        -->
+            Find by:
+       </p>
+        <p>
+            Song Name:
+            <input type="text" name="SearchSongString" value="@ViewData["SongNameFilter"]" />
+            <!--<input type="submit" value="Search" class="btn btn-default" /> -->
+            Singer Name:
+            <input type="text" name="SearchSingerString" value="@ViewData["SingerNameFilter"]" />
+            Genre:
+            <input type="text" name="SearchGenreString" value="@ViewData["GenreFilter"]" />
+            <!--<input type="submit" value="Search" class="btn btn-default" /> -->
+            Mood:
+            <input type="text" name="SearchMoodString" value="@ViewData["MoodFilter"]" />
+        </p>
+        <p>
+           
+            <!--<input type="submit" value="Search" class="btn btn-default" /> -->
+        </p>
+        <p>
+            <input type="submit" value="Search" class="btn btn-default" />
+        </p>
+        <p>
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["SongNameSortParm"]">@Html.DisplayNameFor(model => model.SongName)</a>
+                <!-- @Html.DisplayNameFor(model => model.SongName)-->
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["SingerNameSortParm"]">@Html.DisplayNameFor(model => model.Singer)</a>
+                <!--@Html.DisplayNameFor(model => model.Singer)-->
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["GenreSortParm"]">@Html.DisplayNameFor(model => model.Genre)</a>
+                <!--@Html.DisplayNameFor(model => model.Genre)-->
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["MoodSortParm"]">@Html.DisplayNameFor(model => model.Mood)</a>
+                <!--@Html.DisplayNameFor(model => model.Mood)-->
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Singer.SingerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mood.MoodID)
+            </td>
+            <td>
+
+                
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-area="" asp-controller="Song" asp-action="Edit">Edit</a>
+                        }
+                    }
+                
+
+
+               | <a asp-action="Details" asp-route-id="@item.SongID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SongID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

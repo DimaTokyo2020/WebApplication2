@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using WebApplication2.Models;
+using MoodTubeOriginal.Models;
 
-namespace WebApplication2.Data
+namespace MoodTubeOriginal.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using WebApplication2.Models;
-using WebApplication2.Models.ManageViewModels;
-using WebApplication2.Services;
+using MoodTubeOriginal.Models;
+using MoodTubeOriginal.Models.ManageViewModels;
+using MoodTubeOriginal.Services;
 
-namespace WebApplication2.Controllers
+namespace MoodTubeOriginal.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
@@ -522,7 +522,7 @@ namespace WebApplication2.Controllers
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("WebApplication2"),
+                _urlEncoder.Encode("MoodTubeOriginal"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

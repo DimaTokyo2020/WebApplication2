@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using WebApplication2.Services;
+using MoodTubeOriginal.Services;
 
-namespace WebApplication2.Services
+namespace MoodTubeOriginal.Services
 {
     public static class EmailSenderExtensions
     {

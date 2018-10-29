@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using WebApplication2.Models;
-using WebApplication2.Models.AccountViewModels;
-using WebApplication2.Services;
+using MoodTubeOriginal.Models;
+using MoodTubeOriginal.Models.AccountViewModels;
+using MoodTubeOriginal.Services;
 
-namespace WebApplication2.Controllers
+namespace MoodTubeOriginal.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

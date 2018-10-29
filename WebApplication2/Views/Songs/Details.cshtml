@@ -1,0 +1,36 @@
+﻿@model MoodTubeOriginal.Models.Song
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Song</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SongName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SongName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Singer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Singer.SingerID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mood)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mood.MoodID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SongID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
