@@ -5,97 +5,37 @@
 /* See related post at
 https://codepen.io/Javarome/post/full-page-sliding
 */
-function ScrollHandler(pageId) {
-    var page = document.getElementById(pageId);
-    var pageStart = page.offsetTop;
-    var pageJump = false;
-    var viewStart;
-    var duration = 1000;
-    var scrolled = document.getElementById("scroll");
+window.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var one = document.getElementById('one');
+    var two = document.getElementById('two');
+    var three = document.getElementById('three');
+    var four = document.getElementById('four');
 
-    function scrollToPage() {
-        pageJump = true;
-
-        // Calculate how far to scroll
-        var startLocation = viewStart;
-        var endLocation = pageStart;
-        var distance = endLocation - startLocation;
-
-        var runAnimation;
-
-        // Set the animation variables to 0/undefined.
-        var timeLapsed = 0;
-        var percentage, position;
-
-        var easing = function (progress) {
-            return progress < 0.5
-                ? 4 * progress * progress * progress
-                : (progress - 1) * (2 * progress - 2) * (2 * progress - 2) + 1; // acceleration until halfway, then deceleration
-        };
-
-        function stopAnimationIfRequired(pos) {
-            if (pos == endLocation) {
-                cancelAnimationFrame(runAnimation);
-                setTimeout(function () {
-                    pageJump = false;
-                }, 500);
-            }
+    if (e.deltaY < 0) {
+        if (two.getBoundingClientRect().x == 0 && two.getBoundingClientRect().y == 0) {
+            one.scrollIntoView({ behavior: 'smooth' })
+        }
+        else if (three.getBoundingClientRect().x == 0 && three.getBoundingClientRect().y == 0) {
+            two.scrollIntoView({ behavior: 'smooth' })
+        }
+        else if (four.getBoundingClientRect().x == 0 && four.getBoundingClientRect().y == 0) {
+            three.scrollIntoView({ behavior: 'smooth' })
         }
 
-        var animate = function () {
-            timeLapsed += 16;
-            percentage = timeLapsed / duration;
-            if (percentage > 1) {
-                percentage = 1;
-                position = endLocation;
-            } else {
-                position = startLocation + distance * easing(percentage);
-            }
-            scrolled.scrollTop = position;
-            runAnimation = requestAnimationFrame(animate);
-            stopAnimationIfRequired(position);
-            console.log("position=" + scrolled.scrollTop + "(" + percentage + ")");
-        };
-        // Loop the animation function
-        runAnimation = requestAnimationFrame(animate);
     }
-
-    window.addEventListener("wheel", function (event) {
-        viewStart = scrolled.scrollTop;
-        if (!pageJump) {
-            var pageHeight = page.scrollHeight;
-            var pageStopPortion = pageHeight / 2;
-            var viewHeight = window.innerHeight;
-
-            var viewEnd = viewStart + viewHeight;
-            var pageStartPart = viewEnd - pageStart;
-            var pageEndPart = pageStart + pageHeight - viewStart;
-
-            var canJumpDown = pageStartPart >= 0;
-            var stopJumpDown = pageStartPart > pageStopPortion;
-
-            var canJumpUp = pageEndPart >= 0;
-            var stopJumpUp = pageEndPart > pageStopPortion;
-
-            var scrollingForward = event.deltaY > 0;
-            if (
-                (scrollingForward && canJumpDown && !stopJumpDown) ||
-                (!scrollingForward && canJumpUp && !stopJumpUp)
-            ) {
-                event.preventDefault();
-                scrollToPage();
-            }
-            false; //
-        } else {
-            event.preventDefault();
+    if (e.deltaY > 0) {
+        if (one.getBoundingClientRect().x == 0 && one.getBoundingClientRect().y == 0) {
+            two.scrollIntoView({ behavior: 'smooth' })
         }
-    });
-}
-new ScrollHandler("one");
-new ScrollHandler("two");
-new ScrollHandler("three");
-new ScrollHandler("four");
-
+        else if (two.getBoundingClientRect().x == 0 && two.getBoundingClientRect().y == 0) {
+            three.scrollIntoView({ behavior: 'smooth' })
+        }
+        else if (three.getBoundingClientRect().x == 0 && three.getBoundingClientRect().y == 0) {
+            four.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+});
 $('.playButton').click(function () {
     $('#partyvid').append('<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1&autoplay=1"></iframe>');
-});
+})
