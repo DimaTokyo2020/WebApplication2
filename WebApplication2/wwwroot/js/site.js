@@ -36,6 +36,3 @@ window.addEventListener('wheel', function(e) {
         }
     }
 });
-$('.playButton').click(function () {
-    $('#partyvid').append('<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=1&autoplay=1"></iframe>');
-})
