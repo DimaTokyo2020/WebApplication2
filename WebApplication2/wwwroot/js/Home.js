@@ -1,7 +1,7 @@
 ﻿
 
 $('#likeParty').on("click", function () {
-    alert("like Party!");
+    alert("PARTYYYYY!!!!!! :)");
 });
 
 $('#dislikeParty').on("click", function () {
@@ -10,7 +10,7 @@ $('#dislikeParty').on("click", function () {
 });
 
 $('#likeChill').on("click", function () {
-    alert("like Chill!");
+    alert("Cool man! :)");
 });
 
 $('#dislikeChill').on("click", function () {
@@ -19,7 +19,7 @@ $('#dislikeChill').on("click", function () {
 });
 
 $('#likeRage').on("click", function () {
-    alert("like Rage!");
+    alert("FUCK YEEEEEAH!!! :)");
 });
 
 $('#dislikeRage').on("click", function () {
@@ -33,6 +33,8 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+var lastPlayer;
+var isFirstPlay = true;
 
 var playerParty;
 var partyPlaylist = ['fSOpiZo1BAA', 'JkafqBj6dsk', 'cBVGlBWQzuc', 'mrZRURcb1cM'];
@@ -78,6 +80,10 @@ function onPartyPlayerReady(event) {
         startSeconds: 0,
         suggestedQuality: '360p'
     })
+
+    playerParty.addEventListener('onStateChange', function (e) {
+        stateChanged(playerParty);
+    });
 }
 
 function onChillPlayerReady(event) {
@@ -88,6 +94,10 @@ function onChillPlayerReady(event) {
         startSeconds: 0,
         suggestedQuality: '360p'
     })
+
+    playerChill.addEventListener('onStateChange', function (e) {
+        stateChanged(playerChill);
+    });
 }
 
 function onRagePlayerReady(event) {
@@ -98,6 +108,10 @@ function onRagePlayerReady(event) {
         startSeconds: 0,
         suggestedQuality: '360p'
     })
+
+    playerRage.addEventListener('onStateChange', function (e) {
+        stateChanged(playerRage);
+    });
 }
 
 function dislikeSong(player, songId)
@@ -118,6 +132,19 @@ function removeSong(player, songId) {
     return updatedPlaylist;
 }
 
+function stateChanged(player) {
+    if ((isFirstPlay)  && (YT.PlayerState.PLAYING == player.getPlayerState())) {
+        lastPlayer = player;
+        isFirstPlay = false;
+    }
+    else
+    {
+        if ((lastPlayer != undefined) && (YT.PlayerState.PLAYING == player.getPlayerState()) && (lastPlayer != player)) {
+            lastPlayer.stopVideo();
+            lastPlayer = player;
+        }
+    }
+}
 
 function reloadPlayer(player, playlist, index)
 {
