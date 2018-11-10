@@ -40,7 +40,8 @@
 
         /* Change color of dropdown links on hover */
         .dropdown-content a:hover {
-            background-color: #ddd
+            background-color: #ddd; 
+            cursor: pointer;
         }
 
 /* Show the dropdown menu on hover */
@@ -341,4 +342,8 @@ modal-text {
 .row {
     margin-left: 0 !important;   
     margin-right: 0 !important;
+}
+
+#hellomsg:hover {
+    background-color:inherit;
 }
