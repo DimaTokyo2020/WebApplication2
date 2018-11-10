@@ -27,24 +27,26 @@
     
     <div class="page" id="one">
         <div id="moodTubeTitle">
-            <img src='~/images/mood-logo.png' style="display: inline-block; max-width: 10vw; max-height: 5vh;border-radius: 30%;" />
-            <a href="/Home/About">MoodTube</a>
-            <a id="learnAbout" href="/Home/About">Learn about MoodTube&copy</a>
+            <div id="logo" style="position: absolute">
+                <img src='~/images/mood-logo.png' style="display: inline-block; max-width: 10vw; max-height: 5vh;border-radius: 30%;" />
+                <a href="/Home/About">MoodTube</a>
+                <a id="learnAbout" href="/Home/About">Learn about MoodTube&copy</a>
+            </div>
         </div>
         <div>
-            <a id="mainToParty" onclick="document.getElementById('two').scrollIntoView({behavior: 'smooth'})">
+            <linkBox id="mainToParty" onclick="document.getElementById('two').scrollIntoView({behavior: 'smooth'})">
                 Party
-            </a>
+            </linkBox>
         </div>
         <div>
-            <a id="mainToChill" onclick="document.getElementById('three').scrollIntoView({behavior: 'smooth'})">
+            <linkBox id="mainToChill" onclick="document.getElementById('three').scrollIntoView({behavior: 'smooth'})">
                 Chill
-            </a>
+            </linkBox>
         </div>
         <div>
-            <a id="mainToRage" onclick="document.getElementById('four').scrollIntoView({behavior: 'smooth'})">
+            <linkBox id="mainToRage" onclick="document.getElementById('four').scrollIntoView({behavior: 'smooth'})">
                 Rage
-            </a>
+            </linkBox>
         </div>
     </div>
     <div class="page" id="two">
@@ -86,7 +88,29 @@
                     </button>
                 </center>     
             </div>
-            <div class="col-sm-2"></div>
+            <div class="col-sm-2">
+                <center>
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <modal-text>
+                                <div>
+                                    Do you enjoy our website?
+                                    Share it with your friends so they will enjoy too ;)
+                                </div>
+                                <center>
+                                        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Flocalhost%3A44306%2F&layout=button&size=large&mobile_iframe=true&width=73&height=28&appId" width="100" height="28" style="z-index:5; border:none;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                </center>
+                            </modal-text>
+                        </div>
+
+                    </div>
+                 
+                </center>
+            </div>
         </div>
     </div>
     <div class="page" id="four">
