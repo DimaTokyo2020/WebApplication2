@@ -129,7 +129,7 @@ namespace MoodTubeOriginal.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TourID,Country,City,SingerID,When")] Tour tour)
+        public async Task<IActionResult> Create([Bind("TourID,Country,City,Latitude,Longitude,SingerID,When")] Tour tour)
         {
             if (ModelState.IsValid)
             {
@@ -167,7 +167,7 @@ namespace MoodTubeOriginal.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("TourID,Country,City,SingerID,When")] Tour tour)
+        public async Task<IActionResult> Edit(string id, [Bind("TourID,Country,City,Latitude,Longitude,SingerID,When")] Tour tour)
         {
             if (id != tour.TourID)
             {

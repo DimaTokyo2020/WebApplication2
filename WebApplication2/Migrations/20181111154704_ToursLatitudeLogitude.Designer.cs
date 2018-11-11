@@ -11,9 +11,10 @@ using System;
 namespace MoodTubeOriginal.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20181111154704_ToursLatitudeLogitude")]
+    partial class ToursLatitudeLogitude
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,9 +123,9 @@ namespace MoodTubeOriginal.Migrations
 
                     b.Property<string>("Country");
 
-                    b.Property<string>("Latitude");
+                    b.Property<int>("Latitude");
 
-                    b.Property<string>("Longitude");
+                    b.Property<int>("Longitude");
 
                     b.Property<string>("SingerID");
 

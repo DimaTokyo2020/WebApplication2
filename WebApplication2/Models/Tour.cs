@@ -11,6 +11,8 @@ namespace MoodTubeOriginal.Models
         public string Country { get; set; }
         public string City { get; set; }
         public string SingerID { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
 
         public DateTime When { get; set; }
         public virtual Singer Singer { get; set; }
