@@ -1,15 +1,11 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"]</h2>
-<div id="map" style="height:40em"></div>
-<script>
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 32.073070, lng: 34.842420 },
-            zoom: 8
-        });
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqDOb10yzJ_kUab_K6h7EJ40KQq20BwGM&callback=initMap" async defer></script>
+<h1 style="margin-top:10%">Welcome to MoodTube!</h1>
+<p>MoodTube allows you to play Youtube playlists according to your mood!</p>
+<p>With MoodTube you can:</p>
+<ul>
+    <li>Enjoy music</li>
+    <li>Enjoy music videos</li>
+</ul>
+<p>And have it all according to your mood!</p>

@@ -1,11 +1,8 @@
 ﻿@model MoodTubeOriginal.Models.Tour
-
 @{
     ViewData["Title"] = "Details";
 }
-
 <h2>Details</h2>
-
 <div>
     <h4>Tour</h4>
     <hr />
@@ -29,6 +26,20 @@
             @Html.DisplayFor(model => model.When)
         </dd>
     </dl>
+    <div id="map" style="height:40em"></div>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var location = { lat: parseFloat(@Html.DisplayFor(model => model.Latitude)), lng: parseFloat(@Html.DisplayFor(model => model.Longitude)) };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 15, center: location });
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({ position: location, map: map });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqDOb10yzJ_kUab_K6h7EJ40KQq20BwGM&callback=initMap" async defer></script>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.TourID">Edit</a> |
