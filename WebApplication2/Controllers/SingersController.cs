@@ -195,13 +195,27 @@ namespace MoodTubeOriginal.Controllers
 
             var SingerTours = await _context.Tours
              .Include(s => s.Singer)
-            .SingleOrDefaultAsync(m => m.SingerID == id);
+            .FirstOrDefaultAsync(m => m.SingerID == id);
 
+            if (SingerTours != null)
+            {
                 _context.Tours.Find(SingerTours.TourID).SingerID = null;
                 _context.Tours.Find(SingerTours.TourID).Singer = null;
+            }
 
-           
-           
+            await _context.SaveChangesAsync();
+
+
+            SingerTours = await _context.Tours
+              .Include(s => s.Singer)
+             .SingleOrDefaultAsync(m => m.SingerID == id);
+
+            if (SingerTours != null)
+            {
+                _context.Tours.Find(SingerTours.TourID).SingerID = null;
+                _context.Tours.Find(SingerTours.TourID).Singer = null;
+            }
+
 
 
             await _context.SaveChangesAsync();

@@ -27,7 +27,6 @@ namespace MoodTubeOriginal.Data
 
             var singers = new Singer[]
    {
-            new Singer{SingerID="Luis Fonsi (UCxoq-PAQeAdk_zyg8YS0JqA)",SingerName="Luis Fonsi"},
             new Singer{SingerID="Linkin Park (UCZU9T1ceaOgwfLRq7OKFU4Q)",SingerName="Linkin Park"},
             new Singer{SingerID="Maluma (UClZuKq2m0Qu-HkopkSBLpEw)",SingerName="Maluma"},
             new Singer{SingerID="Luis Fonsi (UCxoq-PAQeAdk_zyg8YS0JqA)",SingerName="Luis Fonsi"},
