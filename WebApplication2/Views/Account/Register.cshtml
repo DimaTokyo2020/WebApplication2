@@ -17,6 +17,11 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <p style="font-weight:bold">Your Country</p>
+                <input asp-for="UserLocation" class="form-control" />
+                <span asp-validation-for="UserLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Password"></label>
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>

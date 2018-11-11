@@ -19,5 +19,6 @@ namespace MoodTubeOriginal.Models
         [StringLength(50)]
         public string SingerName { get; set; }
         public ICollection<Song> Songs { get; set; }
+      
     }
 }

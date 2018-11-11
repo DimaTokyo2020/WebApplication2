@@ -11,9 +11,10 @@ using System;
 namespace MoodTubeOriginal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181102212658_TimeToUser")]
+    partial class TimeToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,6 +143,8 @@ namespace MoodTubeOriginal.Data.Migrations
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<DateTime>("LastConection");
 
                     b.Property<bool>("LockoutEnabled");
 

@@ -11,61 +11,20 @@ using System;
 namespace MoodTubeOriginal.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20181102080824_Tours3")]
+    partial class Tours3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MoodTubeOriginal.Models.ApplicationUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AccessFailedCount");
-
-                    b.Property<string>("ConcurrencyStamp");
-
-                    b.Property<string>("Email");
-
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("NormalizedEmail");
-
-                    b.Property<string>("NormalizedUserName");
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserLocation");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AspNetUsers");
-                });
-
             modelBuilder.Entity("MoodTubeOriginal.Models.Mood", b =>
                 {
                     b.Property<string>("MoodID")
                         .HasMaxLength(50);
-
-                    b.Property<string>("MoodName");
 
                     b.HasKey("MoodID");
 
@@ -77,8 +36,12 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("SingerID")
                         .HasMaxLength(50);
 
+                    b.Property<bool>("Married");
+
                     b.Property<string>("SingerName")
                         .HasMaxLength(50);
+
+                    b.Property<DateTime>("WasBorn");
 
                     b.HasKey("SingerID");
 
@@ -123,8 +86,6 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("Country");
 
                     b.Property<string>("SingerID");
-
-                    b.Property<DateTime>("When");
 
                     b.HasKey("TourID");
 

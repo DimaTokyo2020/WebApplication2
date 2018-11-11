@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MoodTubeOriginal.Models.CountMoodID>
+
+@{
+    ViewData["Title"] = "CountMoodID";
+}
+
+<h2>How many song in each Mood</h2>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MoodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoodName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

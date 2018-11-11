@@ -11,9 +11,10 @@ using System;
 namespace MoodTubeOriginal.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20181110183340_SingerID")]
+    partial class SingerID
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,8 +66,6 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("MoodID")
                         .HasMaxLength(50);
 
-                    b.Property<string>("MoodName");
-
                     b.HasKey("MoodID");
 
                     b.ToTable("Mood");
@@ -77,8 +76,12 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("SingerID")
                         .HasMaxLength(50);
 
+                    b.Property<bool>("Married");
+
                     b.Property<string>("SingerName")
                         .HasMaxLength(50);
+
+                    b.Property<DateTime>("WasBorn");
 
                     b.HasKey("SingerID");
 
@@ -122,13 +125,13 @@ namespace MoodTubeOriginal.Migrations
 
                     b.Property<string>("Country");
 
-                    b.Property<string>("SingerID");
+                    b.Property<string>("SingerID1");
 
                     b.Property<DateTime>("When");
 
                     b.HasKey("TourID");
 
-                    b.HasIndex("SingerID");
+                    b.HasIndex("SingerID1");
 
                     b.ToTable("Tour");
                 });
@@ -146,9 +149,9 @@ namespace MoodTubeOriginal.Migrations
 
             modelBuilder.Entity("MoodTubeOriginal.Models.Tour", b =>
                 {
-                    b.HasOne("MoodTubeOriginal.Models.Singer", "Singer")
+                    b.HasOne("MoodTubeOriginal.Models.Singer", "SingerID")
                         .WithMany()
-                        .HasForeignKey("SingerID");
+                        .HasForeignKey("SingerID1");
                 });
 #pragma warning restore 612, 618
         }

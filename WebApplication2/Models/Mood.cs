@@ -16,6 +16,8 @@ namespace MoodTubeOriginal.Models
         //Now we can enter eny ID we want
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string MoodID { get; set; }
+        public string MoodName { get; set; }
+
         public ICollection<Song> Songs { get; set; }
     }
 }

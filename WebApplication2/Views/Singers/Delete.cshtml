@@ -6,9 +6,11 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>By deleting this Singer you will automatically </h3>
+<h3>change his songs(SingerID & Singer to NULL )</h3>
+<br>
+<h3>Are you sure you want to delete this Singer?</h3>
 <div>
-    <h4>Singer</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -18,7 +20,7 @@
             @Html.DisplayFor(model => model.SingerName)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="SingerID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |

@@ -176,6 +176,32 @@ namespace MoodTubeOriginal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
+            var singer1 = await _context.Singers
+             .Include(s => s.Songs)
+            .ThenInclude(e => e.Mood)
+            .AsNoTracking()
+            .SingleOrDefaultAsync(m => m.SingerID == id);
+
+
+            for (int i = 0; i < singer1.Songs.Count(); i++)
+            {
+                _context.Songs.Find(singer1.Songs.ElementAt(i).SongID).SingerID = null; 
+                _context.Songs.Find(singer1.Songs.ElementAt(i).SongID).Singer = null; 
+            }
+            await _context.SaveChangesAsync();
+
+
+
+            /*
+            for (int i = 0; i < singer1.Songs.Count(); i++)
+                _context.Songs.Remove(singer1.Songs.ElementAt(i));
+            await _context.SaveChangesAsync();*/
+
+            /*
+            var songs = await _context.Songs.FindAsync(id);
+            _context.Songs.Remove(songs);
+            await _context.SaveChangesAsync();
+            */
             var singer = await _context.Singers.FindAsync(id);
             _context.Singers.Remove(singer);
             await _context.SaveChangesAsync();

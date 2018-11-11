@@ -11,9 +11,10 @@ using System;
 namespace MoodTubeOriginal.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20181102091909_ApplicationUser")]
+    partial class ApplicationUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,15 +58,13 @@ namespace MoodTubeOriginal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MoodTubeOriginal.Models.Mood", b =>
                 {
                     b.Property<string>("MoodID")
                         .HasMaxLength(50);
-
-                    b.Property<string>("MoodName");
 
                     b.HasKey("MoodID");
 
@@ -77,8 +76,12 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("SingerID")
                         .HasMaxLength(50);
 
+                    b.Property<bool>("Married");
+
                     b.Property<string>("SingerName")
                         .HasMaxLength(50);
+
+                    b.Property<DateTime>("WasBorn");
 
                     b.HasKey("SingerID");
 
@@ -123,8 +126,6 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("Country");
 
                     b.Property<string>("SingerID");
-
-                    b.Property<DateTime>("When");
 
                     b.HasKey("TourID");
 

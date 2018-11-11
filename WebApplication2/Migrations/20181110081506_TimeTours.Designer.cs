@@ -11,9 +11,10 @@ using System;
 namespace MoodTubeOriginal.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    partial class MusicContextModelSnapshot : ModelSnapshot
+    [Migration("20181110081506_TimeTours")]
+    partial class TimeTours
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,6 +33,8 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("Email");
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<DateTime>("LastConection");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -65,8 +68,6 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("MoodID")
                         .HasMaxLength(50);
 
-                    b.Property<string>("MoodName");
-
                     b.HasKey("MoodID");
 
                     b.ToTable("Mood");
@@ -77,8 +78,12 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("SingerID")
                         .HasMaxLength(50);
 
+                    b.Property<bool>("Married");
+
                     b.Property<string>("SingerName")
                         .HasMaxLength(50);
+
+                    b.Property<DateTime>("WasBorn");
 
                     b.HasKey("SingerID");
 
