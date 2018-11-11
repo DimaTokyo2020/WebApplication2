@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div id="scroll">
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a id="moodTubeNav" onclick="document.getElementById('one').scrollIntoView({behavior: 'smooth'})">MoodTube</a>
+                    <a onclick="document.getElementById('two').scrollIntoView({behavior: 'smooth'})">Party</a>
+                    <a onclick="document.getElementById('three').scrollIntoView({behavior: 'smooth'})">Chill</a>
+                    <a onclick="document.getElementById('four').scrollIntoView({behavior: 'smooth'})">Rage</a>
+                    <div id="usersInterface">
+                        @{
+                            if (SignInManager.IsSignedIn(User))
+                            {
+                                <a id="hellomsg" href="/Manage/Index">@UserManager.GetUserName(User)!</a>
+                            }
+                            else
+                            {
+                                <a id="loginbtn" href="/Account/Login">Login</a>
+                                <a id="registerbtn" href="/Account/Register">Register</a>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="page" id="one">
+        <div id="moodTubeTitle">
+            <div id="logo" style="position: absolute">
+                <img src='~/images/mood-logo.png' style="display: inline-block; max-width: 10vw; max-height: 5vh;border-radius: 30%;" />
+                <a href="/Home/About">MoodTube</a>
+                <a id="learnAbout" href="/Home/About">Learn about MoodTube&copy</a>
+            </div>
+        </div>
+        <div id="mainTo">
+            <div>
+                <linkBox id="mainToParty" onclick="document.getElementById('two').scrollIntoView({behavior: 'smooth'})">
+                    Party
+                </linkBox>
+            </div>
+            <div>
+                <linkBox id="mainToChill" onclick="document.getElementById('three').scrollIntoView({behavior: 'smooth'})">
+                    Chill
+                </linkBox>
+            </div>
+            <div>
+                <linkBox id="mainToRage" onclick="document.getElementById('four').scrollIntoView({behavior: 'smooth'})">
+                    Rage
+                </linkBox>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="two">
+        <div class="linkTitle">
+            <h3>Party</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-8">
+                <center>
+                    <button id="dislikeParty" class="btn-feedback btn btn-danger btn-dislike">
+                        dislike
+                    </button>
+                    <span id="partyvid"></span>
+                    <button id="likeParty" class="btn-feedback btn btn-success btn-like">
+                        like
+                    </button>
+                </center>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+    <div class="page" id="three">
+        <div class="linkTitle">
+            <a href="/chill">Chill</a>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <center>
+                    <button id="dislikeChill" class="btn-feedback btn btn-danger btn-dislike">
+                        dislike
+                    </button>
+                    <span id="chillvid"></span>
+                    <button id="likeChill" class="btn-feedback btn btn-success btn-like">
+                        like
+                    </button>
+                </center>
+            </div>
+            <div class="col-sm-2">
+                <center>
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <modal-text>
+                                <div>
+                                    Do you enjoy our website?
+                                    Share it with your friends so they will enjoy too ;)
+                                </div>
+                                <center>
+                                    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fwww.facebook.com%2FMoodTube-2351619848400418%2F%3Fmodal%3Dadmin_todo_tour&layout=button&size=large&mobile_iframe=true&width=73&height=28&appId" width="100" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                </center>
+                            </modal-text>
+                        </div>
+
+                    </div>
+
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="four">
+        <div class="linkTitle">
+            <a href="/Rage">Rage</a>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <center>
+                    <button id="dislikeRage" class="btn-feedback btn btn-danger btn-dislike">
+                        dislike
+                    </button>
+                    <span id="ragevid"></span>
+                    <button id="likeRage" class="btn-feedback btn btn-success btn-like">
+                        like
+                    </button>
+                </center>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+</body>
+</html>

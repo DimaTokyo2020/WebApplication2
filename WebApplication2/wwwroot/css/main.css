@@ -1,0 +1,355 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dropbtn {
+    position: fixed;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: fixed;
+    margin-top: 30vh;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd; 
+            cursor: pointer;
+        }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+#usersInterface{
+    column-count:2;
+    column-width:auto;
+}
+#loginbtn {
+    border-radius: 35%;
+    background-color: darkseagreen;
+}
+#registerbtn {
+    border-radius: 35%;
+    background-color: darkseagreen;
+}
+#credentials {
+    display: none;
+    border-color: cadetblue;
+    border: 1px solid cadetblue;
+}
+
+#scroll {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.page {
+    width: 100%;
+    height: 100vh;
+}
+
+p {
+    line-height: 100vh;
+    margin: auto;
+    display: block;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+}
+
+#learnAbout {
+    display: none;
+}
+
+#moodTubeNav {
+    background-color: darkgrey;
+}
+
+    #moodTubeNav:hover {
+        background-color: darkslategrey;
+    }
+
+#moodTubeTitle {
+    margin-left: 42%;
+}
+
+    #moodTubeTitle a {
+        color: beige;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 300%;
+        text-decoration: none;
+    }
+
+    #moodTubeTitle:hover #learnAbout {
+        display: block;
+        position: absolute;
+        font-size: smaller;
+        color: white;
+        margin-left: 7%;
+    }
+
+.linkTitle {
+    margin-left: 49%;
+    padding-top: 7%;
+}
+
+    .linkTitle a {
+        color: whitesmoke;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 150%;
+    }
+
+#mainToParty {
+    color: white;
+    font-size: 5em;
+    line-height: initial;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 30%;
+    background-image: url(/images/party.jpg);
+    background-size: cover;
+    border-radius: 25%;
+    cursor: pointer;
+    transition: 2s;
+}
+
+#mainToChill {
+    color: white;
+    font-size: 5em;
+    line-height: initial;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 60%;
+    background-image: url(/images/chill.jpeg);
+    background-size: cover;
+    border-radius: 25%;
+    cursor: pointer;
+    transition: 2s;
+}
+
+#mainToRage {
+    color: white;
+    font-size: 5em;
+    line-height: initial;
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 45%;
+    background-image: url(/images/ragebkgrd.jpg);
+    background-size: cover;
+    border-radius: 25%;
+    cursor: pointer;
+    transition: 2s;
+}
+
+    #mainToParty:hover, #mainToChill:hover, #mainToRage:hover {
+        color: black;
+        box-shadow: 0.1em 0.1em;
+    }
+
+cite {
+    text-align: right;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    font-family: monospace,serif;
+    font-size: 10em;
+    color: white;
+    padding-top: 0.1em;
+    text-shadow: 0.1em 0.1em 0 rgba(0, 0, 0, 0.8);
+}
+
+#one {
+    /*Main*/
+    background-color: dimgrey;
+    background-image: url(/images/1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+}
+
+    #one h1 {
+        background: rgba(0, 0, 0, 0.03);
+    }
+
+#two {
+    /*Party*/
+    background: red;
+    background-image: url(/images/partybkgrd.jpg);
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+}
+
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+.playButton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#PartyPlay {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+#PartyPlay:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+    #two h1 {
+        background: rgba(14, 34, 66, 0.3);
+    }
+
+#three {
+    /*Chill*/
+    background: green;
+    background-image: url(/images/chillbgrd.jpg);
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+}
+
+    #three h1 {
+        float: right;
+        margin-right: 20%;
+        margin-top: 20%;
+        background: rgba(201, 180, 94, 0.089);
+    }
+
+#four {
+    /*Rage*/
+    background: red;
+    background-image: url(/images/rage2.png);
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+}
+
+
+.btn-feedback {
+    margin-bottom: 350px !important;
+}
+
+#logo {
+    margin-top: 60px;
+    
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    height: 300px;
+    transition: 2s;
+}
+
+modal-text {
+   font-family: Verdana;
+   font-size:40px;
+   align-content: center;
+   color: steelblue;
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.row {
+    margin-left: 0 !important;   
+    margin-right: 0 !important;
+}
+
+#hellomsg:hover {
+    background-color:inherit;
+}
+
+/*Google Maps*/
+#map {
+    height: 100%;
+    width: 100%;
+}
