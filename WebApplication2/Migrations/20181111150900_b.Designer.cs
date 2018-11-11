@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using MoodTubeOriginal.Data;
 using System;
@@ -10,8 +11,8 @@ using System;
 namespace MoodTubeOriginal.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    [Migration("20181028213542_Inittial")]
-    partial class Inittial
+    [Migration("20181111150900_b")]
+    partial class b
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,10 +21,52 @@ namespace MoodTubeOriginal.Migrations
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("MoodTubeOriginal.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("ConcurrencyStamp");
+
+                    b.Property<string>("Email");
+
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("NormalizedEmail");
+
+                    b.Property<string>("NormalizedUserName");
+
+                    b.Property<string>("PasswordHash");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserLocation");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AspNetUsers");
+                });
+
             modelBuilder.Entity("MoodTubeOriginal.Models.Mood", b =>
                 {
                     b.Property<string>("MoodID")
                         .HasMaxLength(50);
+
+                    b.Property<string>("MoodName");
 
                     b.HasKey("MoodID");
 
@@ -71,6 +114,26 @@ namespace MoodTubeOriginal.Migrations
                     b.ToTable("Song");
                 });
 
+            modelBuilder.Entity("MoodTubeOriginal.Models.Tour", b =>
+                {
+                    b.Property<string>("TourID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("SingerID");
+
+                    b.Property<DateTime>("When");
+
+                    b.HasKey("TourID");
+
+                    b.HasIndex("SingerID");
+
+                    b.ToTable("Tour");
+                });
+
             modelBuilder.Entity("MoodTubeOriginal.Models.Song", b =>
                 {
                     b.HasOne("MoodTubeOriginal.Models.Mood", "Mood")
@@ -79,6 +142,13 @@ namespace MoodTubeOriginal.Migrations
 
                     b.HasOne("MoodTubeOriginal.Models.Singer", "Singer")
                         .WithMany("Songs")
+                        .HasForeignKey("SingerID");
+                });
+
+            modelBuilder.Entity("MoodTubeOriginal.Models.Tour", b =>
+                {
+                    b.HasOne("MoodTubeOriginal.Models.Singer", "Singer")
+                        .WithMany()
                         .HasForeignKey("SingerID");
                 });
 #pragma warning restore 612, 618

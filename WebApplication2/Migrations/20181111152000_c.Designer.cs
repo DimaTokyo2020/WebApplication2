@@ -11,8 +11,8 @@ using System;
 namespace MoodTubeOriginal.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    [Migration("20181111090723_DeleteSingerMarriedEditedToursSinger")]
-    partial class DeleteSingerMarriedEditedToursSinger
+    [Migration("20181111152000_c")]
+    partial class c
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -65,6 +65,8 @@ namespace MoodTubeOriginal.Migrations
                 {
                     b.Property<string>("MoodID")
                         .HasMaxLength(50);
+
+                    b.Property<string>("MoodName");
 
                     b.HasKey("MoodID");
 
