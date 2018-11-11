@@ -37,14 +37,13 @@ var lastPlayer;
 var isFirstPlay = true;
 
 var playerParty;
-var partyPlaylist = ['fSOpiZo1BAA', 'JkafqBj6dsk', 'cBVGlBWQzuc', 'mrZRURcb1cM'];
+//var partyPlaylist = ['fSOpiZo1BAA', 'JkafqBj6dsk', 'cBVGlBWQzuc', 'mrZRURcb1cM'];
 
 var playerChill;
-var chillPlaylist = ['fSOpiZo1BAA', 'JkafqBj6dsk', 'cBVGlBWQzuc', 'mrZRURcb1cM'];
+//var chillPlaylist = ['fSOpiZo1BAA', 'JkafqBj6dsk', 'cBVGlBWQzuc', 'mrZRURcb1cM'];
 
 var playerRage;
-//var ragePlaylist = ['fSOpiZo1BAA', 'JkafqBj6dsk', 'cBVGlBWQzuc', 'mrZRURcb1cM'];
-ragePlaylist.split(",");
+ragePlaylist = ragePlaylist.split(",");
 function onYouTubeIframeAPIReady() {
     playerParty = new YT.Player('partyvid', {
         height: '390',
