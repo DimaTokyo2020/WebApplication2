@@ -122,9 +122,9 @@ namespace MoodTubeOriginal.Migrations
 
                     b.Property<string>("Country");
 
-                    b.Property<int>("Latitude");
+                    b.Property<string>("Latitude");
 
-                    b.Property<int>("Longitude");
+                    b.Property<string>("Longitude");
 
                     b.Property<string>("SingerID");
 
