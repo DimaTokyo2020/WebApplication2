@@ -11,8 +11,8 @@ using System;
 namespace MoodTubeOriginal.Migrations
 {
     [DbContext(typeof(MusicContext))]
-    [Migration("20181102102042_ApplicationUser2")]
-    partial class ApplicationUser2
+    [Migration("20181111150302_a")]
+    partial class a
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,6 +66,8 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("MoodID")
                         .HasMaxLength(50);
 
+                    b.Property<string>("MoodName");
+
                     b.HasKey("MoodID");
 
                     b.ToTable("Mood");
@@ -76,12 +78,8 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("SingerID")
                         .HasMaxLength(50);
 
-                    b.Property<bool>("Married");
-
                     b.Property<string>("SingerName")
                         .HasMaxLength(50);
-
-                    b.Property<DateTime>("WasBorn");
 
                     b.HasKey("SingerID");
 
@@ -126,6 +124,8 @@ namespace MoodTubeOriginal.Migrations
                     b.Property<string>("Country");
 
                     b.Property<string>("SingerID");
+
+                    b.Property<DateTime>("When");
 
                     b.HasKey("TourID");
 
